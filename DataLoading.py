@@ -1,8 +1,12 @@
 import csv
 import os
+from pathlib import Path
+
+
 class DataLoading:
     __csvpath = ".\\Resources\\Airbnb_Texas_Rentals.csv"
-    __tsvpathFormat =".\\Resources\\tsvFiles\\doc_{}.tsv" 
+    __tsvpathFormat = ".\\Resources\\tsvFiles\\doc_{}.tsv"
+    __tsvDir = "./Resources/tsvFiles"
     
     def LoadCSVandCreateTSVFiles(self):
         with open(self.__csvpath,'r',encoding='utf-8') as csvin:
@@ -14,13 +18,14 @@ class DataLoading:
                     writer = csv.writer(tsvout, delimiter='\t')
                     writer.writerow(line)
 
-     #this will return read all the tsv file in the given path and return list
-     #of string in the tsv
     def LoadTSVFilesDataIntoString(self):
-        pass
-                
-
-
-
+        """Returns a list of strings, each containing the content of tsv file"""
+        path = Path(self.__tsvDir)
+        tsv = list(path.glob('*.tsv'))
+        data = []
+        for p in tsv:
+            with open(p) as f:
+                data.append(f.read())
+        return data
 
 

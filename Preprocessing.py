@@ -2,13 +2,18 @@ class Preprocessing:
     __tsvColumnFormat = ["index", "averageRateperNight", "bedroomCount", "city", "dateofListing", "description",
                          "latitude", "longitude", "title", "url"]
 
-    # this will take list of strings (strings of tsv files) and return a list of object with every column as key
     def __splitDataForTextManagement(self, strings):
+        """For a given list of strings, each containing the content of a tvs file,
+        returns a list of objects representing the tvs files. These objects are dictionaries
+        where the keys are the names of the fields."""
         structured_data = []
         for string in strings:
             content = dict()
             for i, split in enumerate(string.split("\t")):
-                content[self.__tsvColumnFormat[i]] = split
+                if i == 0:
+                    content[self.__tsvColumnFormat[i]] = int(split)
+                else:
+                    content[self.__tsvColumnFormat[i]] = split.split(' ')
             structured_data.append(content)
         return structured_data
 

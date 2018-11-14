@@ -1,4 +1,5 @@
 from collections import defaultdict
+import json
 
 class TextManagement:
     """inverted index"""
@@ -16,13 +17,16 @@ class TextManagement:
                 inverted_index[t].append(doc["index"])
         return inverted_index
 
+    def SaveInvertedIndexJson(self, data, filename):
+        """saves the json of Inverted index object to the file"""
+        with open(filename, 'w') as f:
+            json.dump(data, f)
 
-    #saves the json of Inverted index object to the file in the resources folder
-    def SaveInvertedIndexJson(self,data,filename):
-        pass
-    #load the json file from resources and return the object
-    def LoadInvertedIndexJson(self,filename):
-        pass
+    def LoadInvertedIndexJson(self, filename):
+        """load the json file from file and return the object"""
+        with open(filename, 'r') as f:
+            inverted_index = json.load(f)
+        return inverted_index
 
 
 

@@ -12,9 +12,9 @@ lists = dataloading.LoadTSVFilesDataIntoString()
 data = preprocessing.PreprocessDataForTextManagement(lists)
 invertedIndex = textManagement.CreateInvertedIndexFromData(data)
 #save table maybe
-#TextManagement.SaveInvertedIndexJson(table,"table.json")
+textManagement.SaveInvertedIndexJson(invertedIndex, "table.json")
 #load table from file
-#invertedIndex=TextManagement.LoadInvertedIndexJson("table.json")
+invertedIndex = textManagement.LoadInvertedIndexJson("table.json")
 #Take search Query
 print("Please Enter Search Query: ")
 searchQuery = input()

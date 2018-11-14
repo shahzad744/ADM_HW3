@@ -9,7 +9,7 @@ class Preprocessing:
         structured_data = []
         for string in strings:
             content = dict()
-            for i, split in enumerate(string.split("\t")):
+            for i, split in enumerate(string.lower().split("\t")):
                 if i == 0:
                     content[self.__tsvColumnFormat[i]] = int(split)
                 else:
@@ -18,8 +18,8 @@ class Preprocessing:
         return structured_data
 
     # this will split search string for preprocessing
-    def __splitDataForTextMining(self):
-        pass
+    def __splitDataForTextMining(self,string):
+        return string.lower().split(" ")
 
     # this will take list of strings and return list without stop words
     def __filterStopWords(self, data):
@@ -50,10 +50,10 @@ class Preprocessing:
 
     def PreprocessDataForTextMining(self, searchText):
 
-        data = __splitDataForTextManagement(self, searchText)
+        data = self.__splitDataForTextMining(searchText)
 
-        data = __filterStopWords(data)
-        data = __filterPunctuations(data)
-        data = __stemming(data)
+        data = self.__filterStopWords(data)
+        data = self.__filterPunctuations(data)
+        data = self.__stemming(data)
 
         return data

@@ -24,7 +24,7 @@ class DataLoading:
         tsv = list(path.glob('*.tsv'))
         data = []
         for p in tsv:
-            with open(p) as f:
+            with open(p,'r',encoding='utf-8') as f:
                 data.append(f.read())
         return data
 

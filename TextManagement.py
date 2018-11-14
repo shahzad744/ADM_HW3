@@ -1,6 +1,6 @@
 from collections import defaultdict
 import json
-
+import WordsDictionary
 class TextManagement:
     """inverted index"""
     __resourcespath=".\\Resources"
@@ -8,13 +8,16 @@ class TextManagement:
     def CreateInvertedIndexFromData(self, data):
         """For a given list of objects representing tvs files,
         returns the inverted index."""
+        vocab=WordsDictionary.WordsDictionary()
         inverted_index = defaultdict(list)
         for doc in data:
             terms = set()
             terms.update(doc["title"])
             terms.update(doc["description"])
             for t in terms:
-                inverted_index[t].append(doc["index"])
+                if(vocab.HasWordInDictionary(t)):
+                    inverted_index[vocab.GetTermIdByWord(t)].append(doc["index"])
+                
         return inverted_index
 
     def SaveInvertedIndexJson(self, data, filename):

@@ -5,7 +5,7 @@ class TextManagement:
     """inverted index"""
     __resourcespath=".\\Resources"
 
-    def CreateInvertedIndexFromData(self, data):
+    def CreateInvertedIndex(self, data):
         """For a given list of objects representing tvs files,
         returns the inverted index."""
         vocab=WordsDictionary.WordsDictionary()
@@ -20,6 +20,8 @@ class TextManagement:
                 
         return inverted_index
 
+    def CreateScoredInvertedIndex(self,data):
+        pass
     def SaveInvertedIndexJson(self, data, filename):
         """saves the json of Inverted index object to the file"""
         with open(filename, 'w') as f:

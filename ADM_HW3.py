@@ -11,7 +11,7 @@ displayresults=DisplayResults.DisplayResults()
 
 lists = dataloading.LoadTSVFilesDataIntoString()
 data = preprocessing.PreprocessDataForTextManagement(lists)
-invertedIndex = textManagement.CreateInvertedIndexFromData(data)
+invertedIndex = textManagement.CreateInvertedIndex(data)
 #save table maybe
 textManagement.SaveInvertedIndexJson(invertedIndex, "table.json")
 #load table from file

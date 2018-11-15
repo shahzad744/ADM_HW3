@@ -17,3 +17,6 @@ class TextMining:
                         documentsSet=documentsSet.intersection(docs)                    
         return list(documentsSet)
 
+    def SearchTextFromInvertedScoredIndexAndReturnResults(self,invertedScoredTable,searchText):
+        pass
+

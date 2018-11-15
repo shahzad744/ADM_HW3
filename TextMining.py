@@ -10,8 +10,10 @@ class TextMining:
             if(vocab.HasWordInDictionary(searchWord)):
                 wordIndex=vocab.GetTermIdByWord(searchWord)
                 if(str(wordIndex) in invertedTable):
-                    docs=invertedTable[str(wordIndex)]
-                    for doc in docs:
-                        documentsSet.add(doc)
+                    docs=set(invertedTable[str(wordIndex)])
+                    if(len(documentsSet)==0):
+                        documentsSet=docs
+                    else:
+                        documentsSet=documentsSet.intersection(docs)                    
         return list(documentsSet)
 

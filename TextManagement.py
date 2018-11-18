@@ -37,7 +37,7 @@ class TextManagement:
             for t in distinct_terms:
                 if vocab.HasWordInDictionary(t):
                     tf = terms.count(t)
-                    inverted_index[vocab.GetTermIdByWord(t)].append((doc["index"], tf))
+                    inverted_index[vocab.GetTermIdByWord(t)].append((doc["index"], tf/len(terms)))
             collection_distinct_terms.update(distinct_terms)
         # compute idf(s)
         idfs = {}

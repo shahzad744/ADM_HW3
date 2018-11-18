@@ -9,3 +9,5 @@
 /__pycache__
 /.idea
 
+/table-scored_old.json
+/table-scored.json

@@ -2,6 +2,8 @@ import WordsDictionary
 import heapq
 import math
 from collections import defaultdict
+
+
 class TextMining:
     __k=20
 

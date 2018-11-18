@@ -3,9 +3,10 @@ import json
 import WordsDictionary
 import math
 
+
 class TextManagement:
     """inverted index"""
-    __resourcespath=".\\Resources"
+    __resourcespath="./Resources"
 
     def CreateInvertedIndex(self, data):
         """For a given list of objects representing tvs files,

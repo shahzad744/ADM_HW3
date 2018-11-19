@@ -1,11 +1,12 @@
 import csv
-import os
+
+
 from pathlib import Path
 
 
 class DataLoading:
-    __csvpath = ".\\Resources\\Airbnb_Texas_Rentals.csv"
-    __tsvpathFormat = ".\\Resources\\tsvFiles\\doc_{}.tsv"
+    __csvpath = "./Resources/Airbnb_Texas_Rentals.csv"
+    __tsvpathFormat = "./Resources/tsvFiles/doc_{}.tsv"
     __tsvDir = "./Resources/tsvFiles"
     
     def LoadCSVandCreateTSVFiles(self):

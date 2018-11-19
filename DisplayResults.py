@@ -1,8 +1,10 @@
 import pandas
+
+
 class DisplayResults:
     __simpleResultIndex=["Title","Description","City","Url"]
     __scoredResultIndex=["Title","Description","City","Url","Score"]
-    __tsvpathFormat = ".\\Resources\\tsvFiles\\doc_{}.tsv"
+    __tsvpathFormat = "./Resources/tsvFiles/doc_{}.tsv"
 
     def PrintSimpleResults(self,documentIndexes):        
         data=[]

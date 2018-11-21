@@ -6,7 +6,7 @@ class DisplayResults:
     __scoredResultIndex=["Title","Description","City","Url","Score"]
     __tsvpathFormat = "./Resources/tsvFiles/doc_{}.tsv"
 
-    def PrintSimpleResults(self,documentIndexes):        
+    def GetSimpleResults(self,documentIndexes):
         data=[]
         for i in documentIndexes:
             tsv=self.__tsvpathFormat.format(i)
@@ -17,12 +17,11 @@ class DisplayResults:
                 data.append(wordsList)
 
         if(len(data)==0):
-            print("No records found.")
+            return pandas.DataFrame(data="No records found.")
         else:
-            df=pandas.DataFrame(data=data,columns=self.__simpleResultIndex)
-            print(df)
+            return pandas.DataFrame(data=data,columns=self.__simpleResultIndex)
 
-    def PrintScoredResults(self,documentIndexes):        
+    def GetScoredResults(self,documentIndexes):
         data=[]
         for i in documentIndexes:
             tsv=self.__tsvpathFormat.format(i[0])
@@ -33,10 +32,9 @@ class DisplayResults:
                 data.append(wordsList)
 
         if(len(data)==0):
-            print("No records found.")
+            return pandas.DataFrame(data="No records found.")
         else:
-            df=pandas.DataFrame(data=data,columns=self.__scoredResultIndex)
-            print(df)
+            return pandas.DataFrame(data=data,columns=self.__scoredResultIndex)
 
 
 

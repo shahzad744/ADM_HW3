@@ -1,3 +1,8 @@
+from nltk.corpus import stopwords
+import string as stri
+from nltk.stem.snowball import EnglishStemmer
+
+
 class Preprocessing:
     __tsvColumnFormat = ["index", "averageRateperNight", "bedroomCount", "city", "dateofListing", "description",
                          "latitude", "longitude", "title", "url"]
@@ -23,15 +28,28 @@ class Preprocessing:
 
     # this will take list of strings and return list without stop words
     def __filterStopWords(self, data):
-        return data
+        stop_words = set(stopwords.words("english"))
+        filtered = []
+        for word in data:
+            if word not in stop_words:
+                filtered.append(word)
+        return filtered
 
     # this will take list of strings and return list without punctuations
     def __filterPunctuations(self, data):
-        return data
+        remove_punct = str.maketrans('', '', stri.punctuation)
+        filtered = []
+        for word in data:
+            filtered.append(word.translate(remove_punct))
+        return filtered
 
     # this will perform stemming on list of strings
     def __stemming(self, data):
-        return data
+        stemmer = EnglishStemmer()
+        filtered = []
+        for word in data:
+            filtered.append(stemmer.stem(word))
+        return filtered
 
     # this will take list of strings (strings of tsv files) an will process data
     def PreprocessDataForTextManagement(self, listOftsv):

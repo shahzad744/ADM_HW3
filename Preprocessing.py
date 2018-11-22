@@ -37,7 +37,7 @@ class Preprocessing:
 
     # this will take list of strings and return list without punctuations
     def __filterPunctuations(self, data):
-        remove_punct = str.maketrans('', '', stri.punctuation)
+        remove_punct = str.maketrans('', '', stri.punctuation + '“”–’')
         filtered = []
         for word in data:
             filtered.append(word.translate(remove_punct))

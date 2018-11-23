@@ -1,6 +1,7 @@
 import WordsDictionary
 import heapq
 import math
+import datetime
 from collections import defaultdict
 
 
@@ -31,6 +32,61 @@ class TextMining:
                 else:
                     return []
         return list(set.intersection(*listOfDocs))
+    def __calculateCustomScore(self,searchText,docDetailDic):
+        roomno=[]
+        price=[]
+        priceweight=0
+        bedroomweight=0
+        cityweight=200
+        now=datetime.datetime.now()
+        publishDate=datetime.datetime.strptime(docDetailDic[4],"%Y-%m-%d %H:%M:%S")
+        dateDiffweight=(now - publishDate).days
+        if docDetailDic[3] in searchText["Words"]:
+            cityweight=0
+        numbers=searchText["Numbers"];
+        for num in numbers:
+            if(num>=0 and num<=15):
+                roomno.append(num)
+            if(num>15):
+                price.append(num)
+
+        if(len(roomno)>0):
+            r=sum(roomno)/len(roomno)
+            bedroomweight= 10*abs(r-docDetailDic[1])
+
+        if(len(price)>0):
+            r=sum(price)/len(price)
+            priceweight= abs(r-docDetailDic[0])
+
+        return (15300-priceweight-bedroomweight-cityweight-dateDiffweight)/15300
+    def SearchTextFromInvertedCustomScoredIndexAndReturnResults(self,invertedTable,searchText):
+        listOfDocs=[]
+        documentListWithScores=[]
+        documentListWithScoresSorted=[]
+        docDetailDic=dict()
+        vocab=WordsDictionary.WordsDictionary()
+        for searchWord in searchText["Words"]:
+            if(vocab.HasWordInDictionary(searchWord)):
+                wordIndex=vocab.GetTermIdByWord(searchWord)
+                if(str(wordIndex) in invertedTable):
+                    docs=list(invertedTable[str(wordIndex)])
+                    for doc in docs:
+                        listOfDocs.append(doc[0])
+                        docDetailDic[doc[0]]=doc
+                else:
+                    return []
+        allDocs= list(set(listOfDocs))
+        for dd in allDocs:
+            heapq.heappush(documentListWithScores,(1-self.__calculateCustomScore(searchText,docDetailDic[dd]),dd))
+        
+        i=0
+        while i <self.__k and i<len(documentListWithScores):
+            temp=heapq.heappop(documentListWithScores)
+            documentListWithScoresSorted.append((temp[1],1-temp[0]))
+            i+=1
+
+        return documentListWithScoresSorted
+
 
     def SearchTextFromInvertedScoredIndexAndReturnResults(self,invertedScoredTable,searchText):
         listOfDocs=[]

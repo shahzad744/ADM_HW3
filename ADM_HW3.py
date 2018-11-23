@@ -11,18 +11,19 @@ displayresults=DisplayResults.DisplayResults()
 
 lists = dataloading.LoadTSVFilesDataIntoString()
 data = preprocessing.PreprocessDataForTextManagement(lists)
-invertedIndex = textManagement.CreateScoredInvertedIndex(data)
+invertedIndex = textManagement.CreateInvertedIndexWithNewScore(data)
 #save table maybe
-textManagement.SaveInvertedIndexJson(invertedIndex, "table-scored.json")
+textManagement.SaveInvertedIndexJson(invertedIndex, "table-custom-scored.json")
 #load table from file
-invertedIndex = textManagement.LoadInvertedIndexJson("table-scored.json")
+invertedIndex = textManagement.LoadInvertedIndexJson("table-custom-scored.json")
 #Take search Query
 print("Please Enter Search Query: ")
 searchQuery = input()
-searchQueryProcessed = preprocessing.PreprocessDataForTextMining(searchQuery)
-documentIndexes = textMining.SearchTextFromInvertedScoredIndexAndReturnResults(invertedIndex,searchQueryProcessed)
+searchQueryProcessed = preprocessing.PreprocessDataForTextMiningCustomScore(searchQuery)
+documentIndexes = textMining.SearchTextFromInvertedCustomScoredIndexAndReturnResults(invertedIndex,searchQueryProcessed)
 
-displayresults.PrintScoredResults(documentIndexes)
+results=displayresults.GetScoredResults(documentIndexes)
+print(results)
 
 
 

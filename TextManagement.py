@@ -1,5 +1,6 @@
 from collections import defaultdict
 import json
+import datetime
 import WordsDictionary
 import math
 
@@ -7,7 +8,9 @@ import math
 class TextManagement:
     """inverted index"""
     __resourcespath="./Resources"
-
+    def __myconverter(self,o):
+        if isinstance(o, datetime.datetime):
+            return o.__str__()
     def CreateInvertedIndex(self, data):
         """For a given list of objects representing tvs files,
         returns the inverted index."""
@@ -20,6 +23,21 @@ class TextManagement:
             for t in terms:
                 if vocab.HasWordInDictionary(t):
                     inverted_index[vocab.GetTermIdByWord(t)].append(doc["index"])
+                
+        return inverted_index
+
+    def CreateInvertedIndexWithNewScore(self, data):
+        """For a given list of objects representing tvs files,
+        returns the inverted index."""
+        vocab = WordsDictionary.WordsDictionary()
+        inverted_index = defaultdict(list)
+        for doc in data:
+            terms = set()
+            terms.update(doc["title"])
+            terms.update(doc["description"])
+            for t in terms:
+                if vocab.HasWordInDictionary(t):
+                    inverted_index[vocab.GetTermIdByWord(t)].append([doc["index"],int(doc["averageRateperNight"]),int(doc["bedroomCount"]),doc["city"],doc["dateofListing"]])
                 
         return inverted_index
 
@@ -57,7 +75,7 @@ class TextManagement:
     def SaveInvertedIndexJson(self, data, filename):
         """saves the json of Inverted index object to the file"""
         with open(filename, 'w') as f:
-            json.dump(data, f)
+            json.dump(data, f,default=self.__myconverter)
 
     def LoadInvertedIndexJson(self, filename):
         """load the json file from file and return the object"""

@@ -1,5 +1,7 @@
 from nltk.corpus import stopwords
 import string as stri
+import re
+from datetime import datetime
 from nltk.stem.snowball import EnglishStemmer
 
 
@@ -17,6 +19,26 @@ class Preprocessing:
             for i, split in enumerate(string.lower().split("\t")):
                 if i == 0:
                     content[self.__tsvColumnFormat[i]] = int(split)
+                elif i == 1:
+                    if not split:
+                        content[self.__tsvColumnFormat[i]]=0
+                    else:
+                        content[self.__tsvColumnFormat[i]] = int(split[1:])
+
+                elif i == 2:
+                    if not split or split=="studio":
+                        content[self.__tsvColumnFormat[i]]=0
+                    else:
+                        content[self.__tsvColumnFormat[i]] = int(split)
+                elif i==3 or i==9:
+                    content[self.__tsvColumnFormat[i]] = str(split)
+                elif i==4:
+                    content[self.__tsvColumnFormat[i]]=datetime.strptime(split,"%B %Y")
+                elif i==6 or i==7:
+                    if split=="na":
+                        content[self.__tsvColumnFormat[i]]=0.0
+                    else:
+                        content[self.__tsvColumnFormat[i]] = float(split)
                 else:
                     content[self.__tsvColumnFormat[i]] = split.split(' ')
             structured_data.append(content)
@@ -25,6 +47,13 @@ class Preprocessing:
     # this will split search string for preprocessing
     def __splitDataForTextMining(self,string):
         return string.lower().split(" ")
+    def __splitDataForTextMiningCustomScore(self,string):
+        dic=dict()
+        numbers = re.findall('\d+',string)
+        numbers = list(map(int,numbers))
+        dic["Numbers"]=numbers
+        dic["Words"]=string.lower().split(" ")
+        return dic
 
     # this will take list of strings and return list without stop words
     def __filterStopWords(self, data):
@@ -73,5 +102,13 @@ class Preprocessing:
         data = self.__filterStopWords(data)
         data = self.__filterPunctuations(data)
         data = self.__stemming(data)
+
+        return data
+    def PreprocessDataForTextMiningCustomScore(self, searchText):
+
+        data = self.__splitDataForTextMiningCustomScore(searchText)
+        data["Words"] = self.__filterStopWords(data["Words"])
+        data["Words"] = self.__filterPunctuations(data["Words"])
+        data["Words"] = self.__stemming(data["Words"])
 
         return data

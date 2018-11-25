@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <style>#map_3439fdbd3f734647aa8ba36adb10a188 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_3439fdbd3f734647aa8ba36adb10a188" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_3439fdbd3f734647aa8ba36adb10a188 = L.map(
+        'map_3439fdbd3f734647aa8ba36adb10a188', {
+        center: [30.0, -97.0],
+        zoom: 10,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+    
+    
+    var tile_layer_7b11c4c38f28485595e58cc518b8d6c9 = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "subdomains": "abc"
+}).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+    
+
+            var circle_6d71e2cedb484881bf15e9824d91a85f = L.circle(
+                [30.0, -97.0],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": true,
+  "weight": 3
+}
+                )
+                .addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+            
+    
+        var marker_520f344a15234675a564e8bfe674331e = L.marker(
+            [30.0, -97.0],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_f55d6958acd8417cb439fe2f5d9c6304 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_520f344a15234675a564e8bfe674331e.setIcon(icon_f55d6958acd8417cb439fe2f5d9c6304);
+            
+    
+        marker_520f344a15234675a564e8bfe674331e.bindTooltip(
+            '<div>'
+            + 'You are here!' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_a0f2f7d9bd5045afb3bd0fd6874bc212 = L.marker(
+            [30.0054959546326, -97.1485379125746],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_97c4fecdf8c94022b11477e5c020f6f8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a0f2f7d9bd5045afb3bd0fd6874bc212.setIcon(icon_97c4fecdf8c94022b11477e5c020f6f8);
+            
+    
+            var popup_cd8ce18d6d8c43af975023f5b3d0f2fe = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_220b30266681411cbab1011dd9c6a876 = $('<div id="html_220b30266681411cbab1011dd9c6a876" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/7800120?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_cd8ce18d6d8c43af975023f5b3d0f2fe.setContent(html_220b30266681411cbab1011dd9c6a876);
+            
+
+            marker_a0f2f7d9bd5045afb3bd0fd6874bc212.bindPopup(popup_cd8ce18d6d8c43af975023f5b3d0f2fe)
+            ;
+
+            
+        
+    
+        marker_a0f2f7d9bd5045afb3bd0fd6874bc212.bindTooltip(
+            '<div>'
+            + 'Red Rooster Barn' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_1b4aafc2010d4d8d8e9c2b98ec988ddc = L.marker(
+            [30.0724699293738, -97.1286043150217],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_2bdcb6e2a2ae459297ce2d03bf3c4f52 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1b4aafc2010d4d8d8e9c2b98ec988ddc.setIcon(icon_2bdcb6e2a2ae459297ce2d03bf3c4f52);
+            
+    
+            var popup_f1ef5f1baefc4b87b4f8a30c57d746d7 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_d8695e61a5e14ecbbefd1f7d6d608c1e = $('<div id="html_d8695e61a5e14ecbbefd1f7d6d608c1e" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/16041453?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_f1ef5f1baefc4b87b4f8a30c57d746d7.setContent(html_d8695e61a5e14ecbbefd1f7d6d608c1e);
+            
+
+            marker_1b4aafc2010d4d8d8e9c2b98ec988ddc.bindPopup(popup_f1ef5f1baefc4b87b4f8a30c57d746d7)
+            ;
+
+            
+        
+    
+        marker_1b4aafc2010d4d8d8e9c2b98ec988ddc.bindTooltip(
+            '<div>'
+            + 'Hilltop cabin,views for miles,Smithville & Bastrop' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_839741e0503c42d4bbe2ce5d0bb5d9b1 = L.marker(
+            [30.0401521928648, -97.0924065151262],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_04dc52f5ec7943a7bc0edcfcdc0aa85a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_839741e0503c42d4bbe2ce5d0bb5d9b1.setIcon(icon_04dc52f5ec7943a7bc0edcfcdc0aa85a);
+            
+    
+            var popup_0cf65cd509994ea79ad2953a3deebfd9 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_b5218193b0d64cae98388f01a0447934 = $('<div id="html_b5218193b0d64cae98388f01a0447934" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/760165?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_0cf65cd509994ea79ad2953a3deebfd9.setContent(html_b5218193b0d64cae98388f01a0447934);
+            
+
+            marker_839741e0503c42d4bbe2ce5d0bb5d9b1.bindPopup(popup_0cf65cd509994ea79ad2953a3deebfd9)
+            ;
+
+            
+        
+    
+        marker_839741e0503c42d4bbe2ce5d0bb5d9b1.bindTooltip(
+            '<div>'
+            + 'Lake cabin on small private lake' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_dfc09dce2b4d4ac499a02e81c2b29e53 = L.marker(
+            [30.0120093314202, -97.1545771253192],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_81fa76d5b5a843a1891780dc6d9cee7e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_dfc09dce2b4d4ac499a02e81c2b29e53.setIcon(icon_81fa76d5b5a843a1891780dc6d9cee7e);
+            
+    
+            var popup_0f3b8574738046159dc6f137973a0936 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_c430b134c03d4f1aaf879d6577971ed7 = $('<div id="html_c430b134c03d4f1aaf879d6577971ed7" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/18476461?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_0f3b8574738046159dc6f137973a0936.setContent(html_c430b134c03d4f1aaf879d6577971ed7);
+            
+
+            marker_dfc09dce2b4d4ac499a02e81c2b29e53.bindPopup(popup_0f3b8574738046159dc6f137973a0936)
+            ;
+
+            
+        
+    
+        marker_dfc09dce2b4d4ac499a02e81c2b29e53.bindTooltip(
+            '<div>'
+            + 'Charming OHayne Cottage, Historic Smithville, Tx' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_03e850310d3a47c6ae151c3ca670f620 = L.marker(
+            [30.0111796454211, -97.1546237205488],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_260c272ea6fe4873a150642b99c976a8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_03e850310d3a47c6ae151c3ca670f620.setIcon(icon_260c272ea6fe4873a150642b99c976a8);
+            
+    
+            var popup_88fd7c51ef3943d9a48de340247e3d89 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_d3ea07d6ba464909944e3cff43aee202 = $('<div id="html_d3ea07d6ba464909944e3cff43aee202" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/3068996?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_88fd7c51ef3943d9a48de340247e3d89.setContent(html_d3ea07d6ba464909944e3cff43aee202);
+            
+
+            marker_03e850310d3a47c6ae151c3ca670f620.bindPopup(popup_88fd7c51ef3943d9a48de340247e3d89)
+            ;
+
+            
+        
+    
+        marker_03e850310d3a47c6ae151c3ca670f620.bindTooltip(
+            '<div>'
+            + 'Villa w/ Pool in Historic Downtown ' + '</div>',
+            {"sticky": true}
+        );
+        
+    
+        var marker_256abeaa84fb4de78d0ad05d40b8b3a2 = L.marker(
+            [30.0133906685921, -97.1458307799293],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(map_3439fdbd3f734647aa8ba36adb10a188);
+        
+    
+
+                var icon_8ed1e01fab084db98ce6ad875c49a95b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_256abeaa84fb4de78d0ad05d40b8b3a2.setIcon(icon_8ed1e01fab084db98ce6ad875c49a95b);
+            
+    
+            var popup_c18c3069d4fa4669b115958b169d60d7 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_8cbfd6b83aff47da87a700630cb4f213 = $('<div id="html_8cbfd6b83aff47da87a700630cb4f213" style="width: 100.0%; height: 100.0%;">https://www.airbnb.com/rooms/15097667?location=Bastrop%20County%2C%20TX  </div>')[0];
+                popup_c18c3069d4fa4669b115958b169d60d7.setContent(html_8cbfd6b83aff47da87a700630cb4f213);
+            
+
+            marker_256abeaa84fb4de78d0ad05d40b8b3a2.bindPopup(popup_c18c3069d4fa4669b115958b169d60d7)
+            ;
+
+            
+        
+    
+        marker_256abeaa84fb4de78d0ad05d40b8b3a2.bindTooltip(
+            '<div>'
+            + 'La Petite Maison-Charming Cottage' + '</div>',
+            {"sticky": true}
+        );
+        
+</script>

@@ -3,6 +3,7 @@ import Preprocessing
 import TextManagement
 import TextMining
 import DisplayResults
+import MapDrawer
 from geopy import distance
 import folium
 
@@ -45,7 +46,15 @@ def BonusTask():
     m.save('index.html')
 
 
-BonusTask()
+print("Enter comma seperated Cordinates:")
+cc = input()
+cor = (float(cc.split(",")[0]), float(cc.split(",")[1]))
+print("Distance in km: ")
+dis = float(input())
+
+md = MapDrawer.MapDrawer(cor, dis)
+md.draw()
+
 #dataloading = DataLoading.DataLoading()
 #preprocessing = Preprocessing.Preprocessing()
 #textManagement = TextManagement.TextManagement()

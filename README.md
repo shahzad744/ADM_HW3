@@ -16,3 +16,4 @@ This folder conatins:
 * TextManagement.py: contains the class TextManagement that is responsible to manage the inverted index.
 * TextMining.py: contains the class TextMining. Its responsiblity is to execute a query.
 * WordDictionary.py: contains the class WordDictionary that manages the dictionary.
+* MapDrawer.py: contains the class MapDrawer. Its responsibility is to draw maps for the bonus point.
